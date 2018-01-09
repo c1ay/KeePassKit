@@ -8,9 +8,11 @@
 
 @import Foundation;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KPKKey : NSObject
 
-@property (nonatomic, readonly, copy) NSData *data;
+@property (nonatomic, nullable, readonly, copy) NSData *data;
 
 + (instancetype)keyWithContentOfURL:(NSURL *)url;
 + (instancetype)keyWithPassword:(NSString *)password;
@@ -19,3 +21,5 @@
 - (instancetype)initWithContentOfURL:(NSURL *)url;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -28,6 +28,8 @@
 @class KPKIcon;
 @class KPKTree;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KPKMetaData : NSObject <KPKModificationRecording>
 
 /* Setting for cipher */
@@ -88,7 +90,7 @@
 
 - (BOOL)isEqualToMetaData:(KPKMetaData *)other;
 
-- (KPKIcon *)findIcon:(NSUUID *)uuid;
+- (nullable KPKIcon *)findIcon:(NSUUID *)uuid;
 
 - (void)addCustomIcon:(KPKIcon *)icon;
 - (void)addCustomIcon:(KPKIcon *)icon atIndex:(NSUInteger)index;
@@ -100,3 +102,5 @@
 - (BOOL)protectAttributeWithKey:(NSString *)key;
 
 @end
+
+NS_ASSUME_NONNULL_END

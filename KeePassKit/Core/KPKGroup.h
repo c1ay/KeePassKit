@@ -27,6 +27,8 @@
 
 @class KPKEntry;
 
+NS_ASSUME_NONNULL_BEGIN
+
 FOUNDATION_EXPORT NSString *const KPKGroupUTI;
 FOUNDATION_EXPORT NSString *const KPKEntriesArrayBinding;
 FOUNDATION_EXPORT NSString *const KPKGroupsArrayBinding;
@@ -66,7 +68,7 @@ FOUNDATION_EXPORT NSString *const KPKGroupsArrayBinding;
  *	@param	uuid	The UUID of the entry that needs to be found
  *	@return	The entry associated with the UUID or nil if not found
  */
-- (KPKEntry *)entryForUUID:(NSUUID *)uuid;
+- (nullable KPKEntry *)entryForUUID:(NSUUID *)uuid;
 /**
  *	Searches all childgroups to find the group for the supplied UUID
  *
@@ -74,7 +76,8 @@ FOUNDATION_EXPORT NSString *const KPKGroupsArrayBinding;
  *	@return	group with the matching UUID.
  *  @note   if more than one Group matches, the resutl is the first match.
  */
-- (KPKGroup *)groupForUUID:(NSUUID *)uuid;
+- (nullable KPKGroup *)groupForUUID:(NSUUID *)uuid;
+
 /**
  *	Returns an array containing all entries inside searchable groups.
  *	@return	NSArray of KPKEntries contained in searchable groups
@@ -109,4 +112,6 @@ FOUNDATION_EXPORT NSString *const KPKGroupsArrayBinding;
 - (void)clear;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

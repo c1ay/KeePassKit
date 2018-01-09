@@ -24,6 +24,8 @@
 
 @class KPKAutotype;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Association for Autotype to a given window title
  */
@@ -32,15 +34,15 @@
 /**
  *  The title of the window for this autotype sequence
  */
-@property (nonatomic, copy) NSString *windowTitle;
+@property (nonatomic, nullable, copy) NSString *windowTitle;
 /**
  *  The autotype sequence to use for this window association
  */
-@property (nonatomic, copy) NSString *keystrokeSequence;
-@property (weak, readonly) KPKAutotype *autotype;
+@property (nonatomic, nullable, copy) NSString *keystrokeSequence;
+@property (weak, nullable, readonly) KPKAutotype *autotype;
 @property (nonatomic, readonly) BOOL hasDefaultKeystrokeSequence;
 
-- (instancetype)initWithWindowTitle:(NSString *)windowTitle keystrokeSequence:(NSString *)strokes NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithWindowTitle:(nullable NSString *)windowTitle keystrokeSequence:(nullable NSString *)strokes NS_DESIGNATED_INITIALIZER;
 
 - (BOOL)isEqualToWindowAssociation:(KPKWindowAssociation *)other;
 
@@ -53,5 +55,6 @@
  */
 - (BOOL)matchesWindowTitle:(NSString *)windowTitle;
 
-
 @end
+
+NS_ASSUME_NONNULL_END

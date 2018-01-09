@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSData (KPKIntegerConversion)
 
 @property (readonly) NSUInteger unsignedInteger;
@@ -23,3 +25,5 @@
 + (NSData *)TOTPWithKey:(NSData *)key time:(NSTimeInterval)time slice:(NSUInteger)slice base:(NSUInteger)base;
 
 @end
+
+NS_ASSUME_NONNULL_END

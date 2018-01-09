@@ -10,6 +10,8 @@
 
 @class KPKToken;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KPKTokenStream : NSObject <NSCopying>
 
 @property (readonly, copy) NSArray<KPKToken *> *tokens;
@@ -39,4 +41,7 @@
  Reduces the tokenstream by merging mergeable character tokens
  */
 - (KPKTokenStream *)reducedTokenStream;
+
 @end
+
+NS_ASSUME_NONNULL_END

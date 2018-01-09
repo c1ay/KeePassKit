@@ -160,22 +160,22 @@ FOUNDATION_EXPORT NSString *const kKPKNodeKey;
 
 - (instancetype)initWithTemplateContents;
 
-- (KPKGroup *)createGroup:(KPKGroup *_Nullable)parent;
-- (KPKEntry *)createEntry:(KPKGroup *_Nullable)parent;
+- (KPKGroup *)createGroup:(nullable KPKGroup *)parent;
+- (KPKEntry *)createEntry:(nullable  KPKGroup *)parent;
 /**
  *  Enforces the right setup for the current settings. That is if trash is disabled, does nothing
  *  If trash is enabled, returnes the specified trahs group or creates on if none is present.
  *
  *  @return the Trash group or nil if usage of trash is disabled
  */
-- (KPKGroup * _Nullable)createTrash;
+- (nullable  KPKGroup *)createTrash;
 
 /**
  *  Returns the defautl autotype squence for this tree. If a delegate is set, it is asked for the sequence.
  *
  *  @return defautl sequence, or nil if none is set
  */
-- (NSString * _Nullable)defaultAutotypeSequence;
+- (nullable NSString *)defaultAutotypeSequence;
 
 @end
 

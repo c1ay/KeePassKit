@@ -25,6 +25,8 @@
 
 @class KPKNode;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KPKTimeInfo : NSObject <NSSecureCoding, NSCopying, KPKModificationRecording>
 
 @property(strong) NSDate *creationDate;
@@ -43,3 +45,5 @@
 - (BOOL)isEqualToTimeInfo:(KPKTimeInfo *)timeInfo;
 
 @end
+
+NS_ASSUME_NONNULL_END

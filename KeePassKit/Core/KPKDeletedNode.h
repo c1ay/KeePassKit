@@ -21,6 +21,8 @@
 //
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class KPKNode;
 
 /**
@@ -38,3 +40,5 @@
 - (instancetype)initWithUUID:(NSUUID *)uuid date:(NSDate *)date;
 
 @end
+
+NS_ASSUME_NONNULL_END

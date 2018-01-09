@@ -23,18 +23,22 @@
 @import Foundation;
 #import "KPKPlatformIncludes.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KPKIcon : NSObject <NSCopying, NSSecureCoding>
 
 @property (nonatomic, readonly, strong) NSUUID *uuid;
-@property (nonatomic, strong) NSUIImage *image;
-@property (nonatomic, readonly) NSString *encodedString;
+@property (nonatomic, nullable, strong) NSUIImage *image;
+@property (nonatomic, nullable, readonly) NSString *encodedString;
 
 - (instancetype)initWithImageAtURL:(NSURL *)imageLocation;
-- (instancetype)initWithUUID:(NSUUID *)uuid encodedString:(NSString *)encodedString;
-- (instancetype)initWithUUID:(NSUUID *)uuid imageData:(NSData *)data;
+- (instancetype)initWithUUID:(nullable NSUUID *)uuid encodedString:(NSString *)encodedString;
+- (instancetype)initWithUUID:(nullable NSUUID *)uuid imageData:(NSData *)data;
 - (instancetype)initWithImageData:(NSData *)data;
 - (instancetype)initWithImage:(NSUIImage *)image;
 
 - (BOOL)isEqualToIcon:(KPKIcon *)icon;
 
 @end
+
+NS_ASSUME_NONNULL_END

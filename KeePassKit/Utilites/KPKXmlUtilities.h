@@ -28,6 +28,8 @@
 
 #import "KPKTypes.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark Writing Helper
 /**
  *  Adds an XML Element with the given name and value to the parent element
@@ -70,7 +72,7 @@ NSString *KPKStringFromLong(NSInteger integer);
  *
  *  @return string representation of the date.
  */
-NSString *KPKStringFromDate(NSDate *date, BOOL isRelativeDate);
+NSString * _Nullable KPKStringFromDate(NSDate *date, BOOL isRelativeDate);
 /**
  *  Generates a string value from the given bool
  *
@@ -91,12 +93,14 @@ NSString *stringFromInheritBool(KPKInheritBool value);
 #pragma mark Reading Helper
 BOOL KPKXmlTrue(DDXMLNode *attribute);
 BOOL KPKXmlFalse(DDXMLNode *attribute);
-NSString *KPKXmlString(DDXMLElement *element, NSString *name);
-NSString *KPKXmlNonEmptyString(DDXMLElement *element, NSString *name);
+NSString * _Nullable KPKXmlString(DDXMLElement *element, NSString *name);
+NSString * _Nullable KPKXmlNonEmptyString(DDXMLElement *element, NSString *name);
 NSInteger KPKXmlInteger(DDXMLElement *element, NSString *name);
 BOOL KPKXmlBool(DDXMLElement *element, NSString *name);
 BOOL KPKXmlBoolAttribute(DDXMLElement *element, NSString *attribute);
-NSDate *KPKXmlDate(DDXMLElement *element, NSString *name, BOOL isRelativeDate);
+NSDate * _Nullable KPKXmlDate(DDXMLElement *element, NSString *name, BOOL isRelativeDate);
 KPKInheritBool parseInheritBool(DDXMLElement *element, NSString *name);
 
 #endif
+
+NS_ASSUME_NONNULL_END

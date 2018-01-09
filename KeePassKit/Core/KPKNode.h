@@ -40,6 +40,8 @@ typedef NS_OPTIONS(NSUInteger, KPKCopyOptions) {
   kKPKCopyOptionReferencePassword  = 1<<2, // KPKEntry only - copy references the password of the source
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Abstract base class for all Nodes (Entries and Groups)
  *  Do not instanciate an instance of KPKnode
@@ -55,16 +57,16 @@ typedef NS_OPTIONS(NSUInteger, KPKCopyOptions) {
 
 @property(nonatomic) NSInteger iconId;
 @property(nonatomic, copy) NSUUID *iconUUID;
-@property(nonatomic, readonly, strong) KPKIcon *icon;
+@property(nonatomic, nullable, readonly) KPKIcon *icon;
 @property(nonatomic, readonly, copy) NSUUID *uuid;
-@property(nonatomic, copy) NSString *title;
-@property(nonatomic, copy) NSString *notes;
+@property(nonatomic, nullable, copy) NSString *title;
+@property(nonatomic, nullable, copy) NSString *notes;
 @property(nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> *customData;
 
-@property(nonatomic, readonly, copy) KPKTimeInfo *timeInfo;
+@property(nonatomic, nullable, readonly, copy) KPKTimeInfo *timeInfo;
 
-@property(nonatomic, readonly, weak) KPKGroup *parent;
-@property(nonatomic, readonly, weak) KPKTree *tree;
+@property(nonatomic, nullable, readonly, weak) KPKGroup *parent;
+@property(nonatomic, nullable, readonly, weak) KPKTree *tree;
 
 @property(nonatomic, readonly) NSUndoManager *undoManager;
 
@@ -96,7 +98,7 @@ typedef NS_OPTIONS(NSUInteger, KPKCopyOptions) {
  *
  *  @return copied node
  */
-- (instancetype)copyWithTitle:(NSString *)titleOrNil options:(KPKCopyOptions)options;
+- (instancetype)copyWithTitle:(nullable NSString *)titleOrNil options:(KPKCopyOptions)options;
 
 /**
  *  Creates a new node with the given UUID or generates a new of if nil was supplied
@@ -105,14 +107,14 @@ typedef NS_OPTIONS(NSUInteger, KPKCopyOptions) {
  *
  *  @return newly created node
  */
-- (instancetype)initWithUUID:(NSUUID *)uuid;
+- (instancetype)initWithUUID:(nullable NSUUID *)uuid;
 
 - (KPKComparsionResult)compareToNode:(KPKNode *)aNode;
 /**
  *	Returns the root group of the node by walking up the tree
  *	@return	root group of the node
  */
-@property (nonatomic, readonly) KPKGroup *rootGroup;
+@property (nonatomic, nullable, readonly) KPKGroup *rootGroup;
 /**
  *	Determines if the receiving group is an ancestor of the supplied group
  *	@param node Node to test ancestorship for
@@ -138,8 +140,8 @@ typedef NS_OPTIONS(NSUInteger, KPKCopyOptions) {
 - (void)setCustomData:(NSString *)value forKey:(NSString *)key;
 - (void)clearCustomData;
 
-@property(nonatomic, readonly) KPKGroup *asGroup;
-@property(nonatomic, readonly) KPKEntry *asEntry;
+@property(nonatomic, nullable, readonly) KPKGroup *asGroup;
+@property(nonatomic, nullable, readonly) KPKEntry *asEntry;
 
 #pragma mark Hierarchy
 /**
@@ -162,3 +164,5 @@ typedef NS_OPTIONS(NSUInteger, KPKCopyOptions) {
 @property (nonatomic, readonly, copy) NSIndexPath *indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END

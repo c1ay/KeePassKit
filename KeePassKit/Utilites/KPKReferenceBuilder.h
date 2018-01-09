@@ -18,8 +18,12 @@ typedef NS_ENUM(NSUInteger,KPKReferenceField) {
   KPKReferenceFieldOther
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KPKReferenceBuilder : NSObject
 
 + (NSString *)reference:(KPKReferenceField)field where:(KPKReferenceField)whereField is:(NSString *)text;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -22,6 +22,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /* Binary */
 @interface KPKBinary : NSObject <NSCopying, NSSecureCoding>
 
@@ -34,7 +36,7 @@
  @param data The image data .
  @return Attachment initalized with the given data and name, nil if errors occured
  */
-- (instancetype)initWithName:(NSString *)name data:(NSData *)data NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithName:(nullable NSString *)name data:(nullable NSData *)data NS_DESIGNATED_INITIALIZER;
 /**
  @param url Location of the file to use
  @returns Attachment initalized with the name and data from the given file URL. nil if errors occured
@@ -46,3 +48,5 @@
 - (BOOL)saveToLocation:(NSURL *)location error:(NSError *__autoreleasing *)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

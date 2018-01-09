@@ -24,6 +24,8 @@
 
 @class KPKEntry;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KPKAttribute : NSObject <NSCopying, NSSecureCoding>
 
 @property (nonatomic, copy) NSString *key;
@@ -65,3 +67,5 @@
 - (BOOL)isDefault;
 
 @end
+
+NS_ASSUME_NONNULL_END

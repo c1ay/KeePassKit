@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 typedef NS_ENUM(NSUInteger, KPKNumberType) {
   KPKNumberTypeBool,
   KPKNumberTypeInteger32,
@@ -16,6 +15,8 @@ typedef NS_ENUM(NSUInteger, KPKNumberType) {
   KPKNumberTypeUnsignedInteger32,
   KPKNumberTypeUnsignedInteger64
 };
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Composite Class to hold type and Number information. Subclassing NSNumber would yield undefined behaviour since it's optimized for storage.
@@ -48,3 +49,5 @@ typedef NS_ENUM(NSUInteger, KPKNumberType) {
 - (BOOL)isEqualToNumber:(KPKNumber *)number;
 
 @end
+
+NS_ASSUME_NONNULL_END

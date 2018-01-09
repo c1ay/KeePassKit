@@ -24,6 +24,8 @@
 
 #import "KPKFormat.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class KPKKeyDerivation;
 @class KPKCipher;
 
@@ -53,19 +55,21 @@
  
  The Final key is then created before a write or read gets performend
  */
-- (instancetype)initWithPassword:(NSString *)password keyFileData:(NSData *)keyFileData;
+- (instancetype)initWithPassword:(nullable NSString *)password keyFileData:(nullable NSData *)keyFileData;
 /**
  *  Updates the password and keyfile for the composite key
  *  @param password the new password, can be nil
  *  @param key      the new key file URL, can be nil
  */
-- (void)setPassword:(NSString *)password andKeyFileData:(NSData *)keyFileData;
+- (void)setPassword:(nullable NSString *)password andKeyFileData:(nullable NSData *)keyFileData;
 
 /*
  @return YES if the password and/or key are correct for this composite key
  */
-- (BOOL)testPassword:(NSString *)password keyFileData:(NSData *)keyFileData forVersion:(KPKDatabaseFormat)version;
+- (BOOL)testPassword:(nullable NSString *)password keyFileData:(nullable NSData *)keyFileData forVersion:(KPKDatabaseFormat)version;
 
-- (NSData *)computeKeyDataForFormat:(KPKDatabaseFormat)format masterseed:(NSData *)seed cipher:(KPKCipher *)cipher keyDerivation:(KPKKeyDerivation *)keyDerivation hmacKey:(NSData **)hmacKey error:(NSError *__autoreleasing *)error;
+- (NSData *)computeKeyDataForFormat:(KPKDatabaseFormat)format masterseed:(NSData *)seed cipher:(KPKCipher *)cipher keyDerivation:(KPKKeyDerivation *)keyDerivation hmacKey:(NSData *_Nullable *_Nullable)hmacKey error:(NSError *__autoreleasing *)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -30,6 +30,8 @@
 @class KPKAttribute;
 @class KPKAutotype;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /* Entries declared as MetaEntries in KDB files
  * contain information that is stored in meta data in KDBX file
  */
@@ -67,15 +69,15 @@ FOUNDATION_EXTERN NSString *const KPKMetaEntryKeePassKitUserTemplates;
 @interface KPKEntry : KPKNode <NSCopying, NSSecureCoding>
 #endif
 
-@property (nonatomic, copy) NSString *password;
-@property (nonatomic, copy) NSString *username;
-@property (nonatomic, copy) NSString *url;
+@property (nonatomic, nullable, copy) NSString *password;
+@property (nonatomic, nullable, copy) NSString *username;
+@property (nonatomic, nullable, copy) NSString *url;
 
 @property (nonatomic, copy, readonly) NSArray<KPKBinary *> *binaries;
-@property (nonatomic, copy) NSArray<NSString *> *tags;
-@property (nonatomic, copy) NSUIColor *foregroundColor;
-@property (nonatomic, copy) NSUIColor *backgroundColor;
-@property (nonatomic, copy) NSString *overrideURL;
+@property (nonatomic, nullable, copy) NSArray<NSString *> *tags;
+@property (nonatomic, nullable, copy) NSUIColor *foregroundColor;
+@property (nonatomic, nullable, copy) NSUIColor *backgroundColor;
+@property (nonatomic, nullable, copy) NSString *overrideURL;
 
 @property (nonatomic, copy, readonly) NSArray<KPKAttribute *> *attributes;
 @property (nonatomic, copy, readonly) NSArray<KPKAttribute *> *customAttributes;
@@ -112,12 +114,12 @@ FOUNDATION_EXTERN NSString *const KPKMetaEntryKeePassKitUserTemplates;
  @param key Key for the attribute to retrieve
  @return Attribute with the given key, nil if none was found
  */
-- (KPKAttribute *)attributeWithKey:(NSString *)key;
+- (nullable KPKAttribute *)attributeWithKey:(NSString *)key;
 /**
  @param key String that identifies the attributes
  @returns the attribute with the given key
  */
-- (KPKAttribute *)customAttributeWithKey:(NSString *)key;
+- (nullable KPKAttribute *)customAttributeWithKey:(NSString *)key;
 /**
  *  Returns the value for the attribute with the given key
  *
@@ -125,9 +127,9 @@ FOUNDATION_EXTERN NSString *const KPKMetaEntryKeePassKitUserTemplates;
  *
  *  @return value of the attriubte matching the key, nil if no matching attributes was found
  */
-- (NSString *)valueForAttributeWithKey:(NSString *)key;
+- (nullable NSString *)valueForAttributeWithKey:(NSString *)key;
 
-- (NSString *)evaluatedValueForAttributeWithKey:(NSString *)key;
+- (nullable NSString *)evaluatedValueForAttributeWithKey:(NSString *)key;
 /**
  @returns YES, if the supplied key is a key in the attributes of this entry
  */
@@ -211,4 +213,6 @@ FOUNDATION_EXTERN NSString *const KPKMetaEntryKeePassKitUserTemplates;
 @property (nonatomic, readonly) NSUInteger estimatedByteSize;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
