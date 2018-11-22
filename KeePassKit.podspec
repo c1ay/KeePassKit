@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KeePassKit"
-  s.version      = "1.12"
+  s.version      = "2.4.2"
   s.summary      = "KeePass Database loading, storing and manipulation framework."
   s.homepage     = "https://github.com/MacPass/KeePassKit"
   s.license      = "GPLv3"
@@ -34,13 +34,25 @@ Pod::Spec.new do |s|
     ss.ios.exclude_files = "Argon2/src/opt.c", "Argon2/src/blake2/blamka-round-opt.h"
     ss.watchos.exclude_files = "Argon2/src/opt.c", "Argon2/src/blake2/blamka-round-opt.h"
     ss.tvos.exclude_files = "Argon2/src/opt.c", "Argon2/src/blake2/blamka-round-opt.h"
+    ss.private_header_files = "Argon2/**/*.h"
   end
 
   s.subspec 'ChaCha20' do |ss|
     ss.source_files = "ChaCha20/chacha20_simple.{h,c}"
+    ss.private_header_files = "ChaCha20/chacha20_simple.h"
   end
 
   s.subspec 'TwoFish' do |ss|
     ss.source_files = "TwoFish/twofish.{h,c}"
+    ss.private_header_files = "TwoFish/twofish.h"
   end
+
+  s.test_spec 'Tests' do |test_spec|
+    test_spec.ios.deployment_target = "8.0"
+    test_spec.osx.deployment_target = "10.9"
+    test_spec.tvos.deployment_target = "9.0"
+    test_spec.source_files = 'KeePassKitTests/**/*.{h,m}'
+    test_spec.resources = 'KeePassKitTests/Resources/**/*'
+  end
+
 end
